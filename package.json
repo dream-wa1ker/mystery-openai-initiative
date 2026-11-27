@@ -1,10 +1,15 @@
 {
-  "name": "blackline-meridian-leak",
+  "name": "the-ninth-record",
   "private": true,
-  "version": "3.0.0",
-  "description": "A first-person sector-based mystery with exploration, conversations, clues and scoring.",
+  "version": "4.0.0",
+  "description": "A solo internet ARG in a 3D conservation room, with twelve puzzle stages, connected websites, automatic evidence links and local progression.",
   "scripts": {
+    "start": "node server.mjs",
     "build": "node build.js",
-    "test": "node tests/game.test.js && node tests/mystery-world.test.js && node tests/mystery-renderer.test.js && node tests/scoring.test.js && node tests/playground-flow.test.js"
+    "test": "node scripts/test.mjs",
+    "assets": "node scripts/create-ninth-assets.mjs && node scripts/create-room-models.mjs && python3 scripts/create-audio.py && node scripts/write-authoring.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
   }
 }

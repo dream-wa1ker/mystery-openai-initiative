@@ -1,0 +1,303 @@
+[
+  {
+    "id": "invitation",
+    "title": "A mark in the margin",
+    "requires": [],
+    "type": "answer",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "ix",
+      "9",
+      "nine"
+    ],
+    "hints": [
+      "Look at the dots, not the gaps in the circle.",
+      "There are nine dots. The envelope uses Roman numerals.",
+      "Nine is written IX."
+    ],
+    "revelation": "IX is a catalogue identifier. It is not a security clearance or a military code.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "trace",
+    "title": "The word that survived",
+    "requires": [
+      "invitation"
+    ],
+    "type": "wordle",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "TRACE"
+    ],
+    "hints": [
+      "The missing word is also something left behind.",
+      "It starts with T and ends in E.",
+      "The word is TRACE."
+    ],
+    "revelation": "TRACE is a public catalogue tag. It leads to a foundation page, not a secret computer system.",
+    "pages": 2,
+    "source": null,
+    "website": "websites/foundation/index.html"
+  },
+  {
+    "id": "index",
+    "title": "The shelf index",
+    "requires": [
+      "trace"
+    ],
+    "type": "sudoku",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      [
+        1,
+        2,
+        3,
+        4,
+        3,
+        4,
+        1,
+        2,
+        2,
+        1,
+        4,
+        3,
+        4,
+        3,
+        2,
+        1
+      ]
+    ],
+    "hints": [
+      "Start with rows or boxes that have two empty cells. Pencil marks can help.",
+      "The first row is 1, 2, 3, 4.",
+      "The full grid is 1234 / 3412 / 2143 / 4321. The marked diagonal reads 1441."
+    ],
+    "revelation": "The completed diagonal reads 1441. Shelf 1441 opens three independent research threads.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "echo",
+    "title": "Four letters on the receiver",
+    "requires": [
+      "index"
+    ],
+    "type": "morse",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "echo"
+    ],
+    "hints": [
+      "Each wide pause separates a letter. There are four letters.",
+      "The groups are . / -.-. / .... / ---.",
+      "The decoded marker is ECHO."
+    ],
+    "revelation": "The receiver carried ECHO. That is an observed marker, not proof of a prediction.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "cipher",
+    "title": "Three places to the left",
+    "requires": [
+      "index"
+    ],
+    "type": "caesar",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "donottrustthedate"
+    ],
+    "hints": [
+      "This is a Caesar shift, not an unfamiliar military cipher.",
+      "Shift D back three letters to A. Do the same for the other letters.",
+      "The message reads DO NOT TRUST THE DATE."
+    ],
+    "revelation": "Voss warned that the date labels themselves needed verification.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "treaty",
+    "title": "Two dates, two meanings",
+    "requires": [
+      "index"
+    ],
+    "type": "history",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "1975",
+      "26march1975",
+      "19750326"
+    ],
+    "hints": [
+      "Find the words “opened for signature” and “entered into force”. They refer to different events.",
+      "1972 is the signature year. The later date is the one the question asks for.",
+      "The convention entered into force in 1975."
+    ],
+    "revelation": "The Aster label conflated signature in 1972 with entry into force in 1975.",
+    "pages": 2,
+    "source": "bwc",
+    "website": null
+  },
+  {
+    "id": "atoms",
+    "title": "The institution and the speech",
+    "requires": [
+      "index"
+    ],
+    "type": "history",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "1957"
+    ],
+    "hints": [
+      "The speech and the agency’s establishment are separate milestones.",
+      "1953 belongs to Atoms for Peace. Follow the timeline to the agency.",
+      "The IAEA was established in 1957."
+    ],
+    "revelation": "Aster’s chart used the speech’s year as the institution’s founding year.",
+    "pages": 2,
+    "source": "atoms",
+    "website": null
+  },
+  {
+    "id": "alignment",
+    "title": "The two halves of an order",
+    "requires": [
+      "echo",
+      "cipher"
+    ],
+    "type": "alignment",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "rook",
+      "eliasrook"
+    ],
+    "hints": [
+      "The cross marks, not the paper edges, are the alignment references.",
+      "The correct position is 62% across and 38% down on the inspection mat.",
+      "Align at 62 / 38. The signature is ROOK."
+    ],
+    "revelation": "Elias Rook requested retrospective date labels. This establishes editorial intent, not responsibility for historical events.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "receipt",
+    "title": "Which record is primary?",
+    "requires": [
+      "treaty",
+      "atoms",
+      "alignment"
+    ],
+    "type": "receipt",
+    "points": 100,
+    "optional": false,
+    "acceptedAnswers": [
+      "ix",
+      "recordix",
+      "9"
+    ],
+    "hints": [
+      "The press summary and typed copy were created after the editorial memorandum.",
+      "The IX receipt matches the original receiver-log digest. A matching digest establishes the file’s identity, not that every interpretation is true.",
+      "Select the original receipt labelled IX."
+    ],
+    "revelation": "IX preserves the original log and the editorial history. It separates a manufactured prediction claim from the unexplained ECHO marker.",
+    "pages": 2,
+    "source": null,
+    "website": "websites/journal/index.html"
+  },
+  {
+    "id": "synthesis",
+    "title": "The ninth record",
+    "requires": [
+      "invitation",
+      "trace",
+      "index",
+      "echo",
+      "cipher",
+      "treaty",
+      "atoms",
+      "alignment",
+      "receipt"
+    ],
+    "type": "synthesis",
+    "points": 200,
+    "optional": false,
+    "acceptedAnswers": [
+      {
+        "method": "BACKDATING",
+        "primary": "IX",
+        "signal": "ECHO"
+      }
+    ],
+    "hints": [
+      "Your board has three conclusions: an editorial method, an original record, and an unresolved observation.",
+      "Rook requested retrospective dates; Voss retained IX; Hale recorded ECHO.",
+      "The answers are BACKDATING, IX, and ECHO."
+    ],
+    "revelation": "You have documented the retrospective date changes, preserved the original IX log, and left ECHO as an open research question.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  },
+  {
+    "id": "source",
+    "title": "A note behind the page",
+    "requires": [
+      "trace"
+    ],
+    "type": "answer",
+    "points": 75,
+    "optional": true,
+    "acceptedAnswers": [
+      "lantern"
+    ],
+    "hints": [
+      "On most desktop browsers, use View Page Source from the browser menu. This is optional.",
+      "Search the source text for “conservator”.",
+      "The comment’s reference word is LANTERN."
+    ],
+    "revelation": "The source comment is Voss’s mundane breadcrumb: a reference to the desk lamp, not an intrusion into a real system.",
+    "pages": 2,
+    "source": null,
+    "website": "websites/foundation/index.html"
+  },
+  {
+    "id": "vigenere",
+    "title": "A different alphabet each time",
+    "requires": [
+      "echo"
+    ],
+    "type": "vigenere",
+    "points": 75,
+    "optional": true,
+    "acceptedAnswers": [
+      "remember"
+    ],
+    "hints": [
+      "Repeat ECHO beneath the ciphertext. Convert A–Z to 0–25.",
+      "Subtract each key value from the matching ciphertext value, wrapping around the alphabet.",
+      "The plaintext is REMEMBER."
+    ],
+    "revelation": "REMEMBER is Hale’s instruction to preserve the original observations, including the ones that do not fit a theory.",
+    "pages": 2,
+    "source": null,
+    "website": null
+  }
+]

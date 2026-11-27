@@ -1,90 +1,78 @@
-# BLACKLINE — The Meridian Leak
+# The Ninth Record
 
-A first-person mystery set inside a connected intelligence directorate. Walk the building, climb to the upper galleries, question people, inspect records, connect evidence, and choose what reaches the public.
+A complete solo browser ARG set in a small 3D conservation room. Investigate the fictional Aster Foundation through dossiers, Morse, word deduction, Sudoku, basic ciphers, source verification, image alignment, and connected websites. Verified findings automatically form evidence-board connections when pinned.
 
-The main case retains its eight original findings, investigation puzzles, three evidence links, suspect dialogue, and six dispositions. The world adds seven supporting records, six physical people to interact with, scoring, and saved exploration.
-
-## Play
-
-Open `index.html` in a WebGL-capable desktop browser, or serve the folder:
+## Run
 
 ```sh
-python3 -m http.server 8000
+npm start
 ```
 
-Visit http://localhost:8000. No installation, API key, downloaded game engine, or DOOM assets are needed. A local server is recommended for consistent texture loading; if a file URL blocks portrait uploads, the renderer uses its procedural people sprites.
+Open **http://localhost:5173**. JavaScript modules and 3D models require HTTP; opening `index.html` as a file displays the server instructions. The checked-in runtime includes its Three.js dependency, models, textures, images, and audio, so play requires no API key, account, or CDN connection.
 
-Every load starts at the home screen. Starting or continuing first shows a mission briefing: what to find, what objects to look for, and the controls. The live world has **no HUD, floating prompts, navigation buttons, or permanent overlays**. Keys open opaque full-screen panels and pause movement.
+For development on a fresh checkout, run `npm install` to install the locked build/test dependency.
 
-| Key | Action |
-| --- | --- |
-| WASD | Move / strafe |
-| Left / right arrows | Turn |
-| Mouse / drag | Look; click the world to capture the mouse |
-| Shift | Move faster |
-| E | Face a nearby object/person to inspect, talk, open a door, or climb a ladder |
-| H or ? | Full-screen field manual |
-| M or Tab | Building map, explored cells, walked trail, and planned route |
-| B | Evidence board |
-| J | Private field notes |
-| I | Objectives, score, and final assessment |
-| T | Toggle the planned route’s floor guidance lights |
-| F | Browser fullscreen, when supported |
-| N | Interaction sounds |
-| Escape | Close a panel, return from a workspace, or pause/release mouse capture |
+## What is included
 
-In the map, **1–8** select a room and calculate a route; they do not teleport the player. In inspection and conversation panels, numbered choices, Tab, Enter, and the mouse work. Text entry keeps its own keyboard input. Keyboard controls are required for exploration.
+- Ten complete core puzzle stages and two optional technical branches.
+- Twenty-four authored dossier pages and three correspondents with ten progress-gated letters.
+- Seventeen original GLB models in a real Three.js 3D room, with shadows, materials, camera navigation and picking.
+- A generated fictional observatory photograph, three generated portraits, eleven deterministic SVG graphics, and six locally synthesized audio assets.
+- A standalone fictional foundation catalogue and conservator’s journal, with downloadable content samples and matching SHA-256 digests.
+- Historical source notes, bundled facts, three-level hints, cipher tools, audio transcripts, keyboard navigation, print views and a flat-archive fallback.
+- Local save/resume, private notes, draggable board arrangement, save-file import/export, rank progression and an honest personal scoreboard.
+- A complete conclusion that separates established editorial backdating, the retained original IX record, and the still-unexplained ECHO marker. There is no hidden publication-choice failure.
 
-## Building and investigation
+## Controls and progression
 
-The 56 × 44 layout has eight connected areas: Arrival hall, Central atrium, Crisis room, Security office, Document archive, Press liaison wing, Observation gallery, and Service workshop. Upper rooms sit 1.4 world units above the ground floor.
+Click props or use the visible navigation. Drag the room to orbit and scroll to zoom. Keyboard shortcuts are **1** for records, **2** for the board, **3** for the terminal, **4** for reference tools, **H** for help, **L** for the ledger, **N** for notes, **F** for fullscreen, and **Escape** to return. Typing retains its normal keys.
 
-Three actual stairways connect the elevations. Walking changes the player’s floor height, with a smoothed eye position. A maintenance ladder below the west archive supports an animated climb in both directions. Closed doors block movement and visibility until opened. Structural islands create collision geometry inside rooms.
+Read a record, solve its task, verify the answer, then pin the finding. Connections appear automatically when both endpoint records are solved and pinned. Pin-all recovers any findings you left unpinned. The final dossier opens after the nine earlier core records have been solved and pinned. Optional technical tasks never block completion and remain available afterward.
 
-Vale, Imani, and Kade retain their original conversations. Officer Marin, Archivist Sato, and Technician Ortega offer directions and context. Records and terminals open the original document comparison, hidden text-layer, device log, CCTV timeline, upload fingerprint, and message recovery puzzles.
+Incorrect guesses cost no points. A completed finding is credited once; revisits cannot farm credit. Two core findings promote Visitor to Research Assistant, three to Investigator, seven to Analyst, and completing the case to Archivist. Main findings earn 100 points, the synthesis 200, technical extras 75 each, pins 15, and verified links 25. A +150 mastery bonus requires the complete case, both optional findings, and no full-solution hint. The maximum is **1,930 points**.
 
-The automap stores the actual walked trail and explored cells separately from a calculated route. Faint areas show the building blueprint; visited areas are brighter. Optional gold guidance studs are rendered on the world floor, with wall and floor depth, rather than as a screen overlay.
+Progress is stored under `ninth-record-case-v1` in this browser. Export from the ledger to transfer it. Imported files have a checksum for accidental corruption detection, not authentication. Browser-only verification is a gameplay gate, not anti-cheat; the ledger is personal rather than a claimed secure multiplayer leaderboard.
 
-## Points and saves
+## Author materials — contain spoilers
 
-| Discovery | Points |
-| --- | ---: |
-| Main evidence finding | 100 each × 8 |
-| Supporting record | 40 each × 7 |
-| First contact with a person | 25 each × 6 |
-| Valid evidence connection | 75 each × 3 |
-| Fully supported, source-safe resolution | 300 |
-| Maximum | **1,755** |
+- [Story bible](authoring/story-bible.md): truth, characters, source policy, narrative structure and ending.
+- [Puzzle dependency graph](authoring/puzzle-dependencies.mmd).
+- [Detailed puzzle definitions](authoring/puzzle-design.json).
+- [Solution and hint guide](authoring/solution-guide.md).
 
-Points derive from unique recorded discoveries. Reopening a document, repeating a conversation, or reversing an existing link never farms points. Scores are shown in case panels, not over the live world.
+Author solutions are excluded from `dist/`. Earlier prototype source files remain in the repository but are not loaded or shipped by the new entry point.
 
-Case progress and notes use the existing `blackline-case-v2` localStorage save; older case saves migrate without losing their evidence or notes. The world’s pose, opened doors, explored cells, walked trail, and planned destination use `blackline-playground-v1`. Movement and panels do not spend story time. Correct main findings retain the original action-clock behavior.
-
-## Engine approach
-
-The design was informed by the original id Software [BSP/sector renderer](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/r_bsp.c), [player movement and collision](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c), and [floor movement code](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_floor.c). This project implements its own renderer and geometry; it does not run the DOOM engine or copy its code or WAD assets.
-
-This implementation uses a height-field sector layout with WebGL textured triangles, floor/ceiling surfaces, vertical stair risers, billboard people/props, fog, and depth-tested sprites. It uses discrete substeps and elevation checks for collision, breadth-first routing through connected cells, and a timed climb for the ladder. World materials and signs are generated locally in canvas; suspect portraits come from the project’s existing custom artwork.
-
-## Validate and package
+## Validate and build
 
 ```sh
 npm test
 npm run build
 ```
 
-The active test suite covers the original endings and save rules; collision and walkable routes; three stairways and ladder landings; scoring and migration; WebGL API/geometry and camera transforms; the home/briefing/help/map flow; and a simulated complete winning investigation. DOM/WebGL doubles do not substitute for live visual/browser verification.
+The tests exercise full main and optional solution paths, automatic board links, ranks, score deduplication, hint behavior, Sudoku uniqueness, repeated-letter word feedback, both ciphers, alignment tolerances, save recovery and import integrity. Interface flow tests use a deterministic DOM double, including a complete ending, no-WebGL operation, blocked storage, notes, hints, tools and imports. Models are loaded by the actual Three.js GLTFLoader to verify their geometry and named surfaces. Static-handler tests check MIME types, linked files, websites, audio and model delivery.
 
-The vertex and fragment shaders can also be checked with `glslangValidator --glsl-version 100` after extracting them from `mystery-renderer.js`.
+These checks do not establish visual quality or frame rate in a live browser. A human playtest with technical and nontechnical players is still a separate verification step.
 
-`dist/` contains the static game for the existing hosting configuration. Building does not publish it. Earlier presentation modules remain in source as prior versions but are not loaded or copied into this build.
+`dist/` is a self-contained static build of about 10 MB. Deploy that folder to an HTTPS static host. No server-side application or API is required for the published game. Building does not publish it.
 
-- `mystery-world.js`: height-field building, stairs, doors, people, records, collision, targeting, routing, and world save recovery.
-- `mystery-renderer.js`: WebGL geometry, textures, billboards, camera, movement, ladder animation, input, and world persistence.
-- `playground-ui.js`: home, preflight, conversations, automap, case panels, keyboard navigation, and play/pause state.
-- `game-engine.js`: original evidence/outcomes plus unique discoveries, contacts, and scoring.
-- `app.js`: original case content, inspection puzzles, dialogue, journal, evidence connections, and assessment.
-- `playground.css`: full-screen world, home, and opaque panels.
-- `assets/`: original SVGs and custom generated room/portraits; generation prompts are in `assets/ART-DIRECTION.txt`.
+## Asset and content regeneration
 
-People, places, and events are fictional.
+```sh
+npm run assets
+```
+
+This regenerates the original SVGs, seventeen GLB model assemblies, local WAV audio, dependency graph and author solution data. It requires Node, the locked Three.js dependency, and Python 3. The generated photograph and portraits are retained assets; generation prompts and provenance are in [ART-DIRECTION.txt](assets/ninth/ART-DIRECTION.txt). Three.js is licensed under MIT, included in `vendor/THREE-LICENSE.txt`.
+
+## Source layout
+
+- `arg/content.mjs`: authored case, document pages, reference facts, correspondence, puzzle prerequisites and edge explanations.
+- `arg/engine.mjs`: verification, scoring, role progression, pins, automatic connections, normalization and save integrity.
+- `arg/room.mjs`: the 3D conservation room, model loading, textures, camera, picking and live physical board.
+- `arg/views.mjs`: readable documents and puzzle interfaces, the board, ledger, tools, correspondence and conclusion.
+- `arg/app.mjs`: navigation, interactions, audio, persistence and accessible fallback.
+- `arg/style.css`: room presentation, responsive reading panels and print styles.
+- `websites/`: authored external-style foundation and journal surfaces.
+- `assets/ninth/`: game-specific models, images, graphics and audio.
+- `server.mjs`: local development server; `build.js`: static packaging.
+
+Aster, its people, its building and its conspiracy are fictional. Historical reference facts are identified with primary-source links and bundled fallbacks. The weapons-related context concerns history, institutions and consequences, not operational instruction.

@@ -1,0 +1,87 @@
+[
+  {
+    "name": "desk",
+    "url": "assets/ninth/models/desk.glb",
+    "bytes": 326276
+  },
+  {
+    "name": "lamp",
+    "url": "assets/ninth/models/lamp.glb",
+    "bytes": 39888
+  },
+  {
+    "name": "terminal",
+    "url": "assets/ninth/models/terminal.glb",
+    "bytes": 1363700
+  },
+  {
+    "name": "radio",
+    "url": "assets/ninth/models/radio.glb",
+    "bytes": 329216
+  },
+  {
+    "name": "dossier",
+    "url": "assets/ninth/models/dossier.glb",
+    "bytes": 297344
+  },
+  {
+    "name": "cabinet",
+    "url": "assets/ninth/models/cabinet.glb",
+    "bytes": 296836
+  },
+  {
+    "name": "shelf",
+    "url": "assets/ninth/models/shelf.glb",
+    "bytes": 1810876
+  },
+  {
+    "name": "chair",
+    "url": "assets/ninth/models/chair.glb",
+    "bytes": 251516
+  },
+  {
+    "name": "magnifier",
+    "url": "assets/ninth/models/magnifier.glb",
+    "bytes": 35372
+  },
+  {
+    "name": "cup",
+    "url": "assets/ninth/models/cup.glb",
+    "bytes": 33548
+  },
+  {
+    "name": "stamp",
+    "url": "assets/ninth/models/stamp.glb",
+    "bytes": 79344
+  },
+  {
+    "name": "pencil",
+    "url": "assets/ninth/models/pencil.glb",
+    "bytes": 5048
+  },
+  {
+    "name": "recorder",
+    "url": "assets/ninth/models/recorder.glb",
+    "bytes": 184636
+  },
+  {
+    "name": "indexbox",
+    "url": "assets/ninth/models/indexbox.glb",
+    "bytes": 148568
+  },
+  {
+    "name": "board",
+    "url": "assets/ninth/models/board.glb",
+    "bytes": 379460
+  },
+  {
+    "name": "frame",
+    "url": "assets/ninth/models/frame.glb",
+    "bytes": 59740
+  },
+  {
+    "name": "referencebook",
+    "url": "assets/ninth/models/referencebook.glb",
+    "bytes": 119312
+  }
+]

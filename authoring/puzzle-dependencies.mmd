@@ -1,0 +1,36 @@
+flowchart TD
+  invitation["01: A mark in the margin"]
+  trace["02: The word that survived"]
+  index["03: The shelf index"]
+  echo["04: Four letters on the receiver"]
+  cipher["05: Three places to the left"]
+  treaty["06: Two dates, two meanings"]
+  atoms["07: The institution and the speech"]
+  alignment["08: The two halves of an order"]
+  receipt["09: Which record is primary?"]
+  synthesis["10: The ninth record"]
+  source["A: A note behind the page (optional)"]
+  vigenere["B: A different alphabet each time (optional)"]
+  invitation --> trace
+  trace --> index
+  index --> echo
+  index --> cipher
+  index --> treaty
+  index --> atoms
+  echo --> alignment
+  cipher --> alignment
+  treaty --> receipt
+  atoms --> receipt
+  alignment --> receipt
+  invitation --> synthesis
+  trace --> synthesis
+  index --> synthesis
+  echo --> synthesis
+  cipher --> synthesis
+  treaty --> synthesis
+  atoms --> synthesis
+  alignment --> synthesis
+  receipt --> synthesis
+  trace --> source
+  echo --> vigenere
+  pin["All nine earlier core findings pinned"] --> synthesis
