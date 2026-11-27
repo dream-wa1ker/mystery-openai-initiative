@@ -1,0 +1,16 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const G=require('../game-engine');
+function full(){const s=G.fresh();Object.keys(G.evidence).forEach(id=>G.collect(s,id));G.pairs.forEach(p=>G.connect(s,...p));return s;}
+test('a solved investigation reaches the protected-source ending',()=>{const s=full();assert.equal(G.assess(s,'Kade','verified').code,'success');assert.equal(s.clues.length,8);assert.equal(s.links.length,3);assert.ok(s.minutes<379);});
+test('all incomplete attributions fail, even when the suspect is correct',()=>{for(const missing of ['revision','annex','export','camera','upload']){const s=full();s.clues=s.clues.filter(x=>x!==missing);assert.equal(G.assess(s,'Kade','verified').code,'unsupported',missing);}});
+test('a wrong suspect cannot pass with a complete case file',()=>{for(const name of ['Vale','Imani'])assert.equal(G.assess(full(),name,'verified').code,'unsupported');});
+test('publishing the raw file exposes sources; silence leaves the false story intact',()=>{assert.equal(G.assess(full(),'Kade','raw').code,'exposed');assert.equal(G.assess(full(),'Kade','silence').code,'silence');});
+test('the public correction requires both original wording and independent corroboration',()=>{for(const missing of ['original','cable']){const s=full();s.clues=s.clues.filter(x=>x!==missing);assert.equal(G.assess(s,'Kade','verified').code,'unverified');}});
+test('collecting facts without connecting the case gives a distinct ending',()=>{const s=full();s.links=[];assert.equal(G.assess(s,'Kade','verified').code,'unconnected');});
+test('rechecking findings is free and cannot duplicate evidence',()=>{const s=G.fresh();assert.equal(G.collect(s,'camera'),true);const t=s.minutes;assert.equal(G.collect(s,'camera'),false);assert.equal(s.minutes,t);assert.deepEqual(s.clues,['camera']);});
+test('links need both recovered findings, reject unrelated pairs, and deduplicate reverse links',()=>{const s=G.fresh();assert.equal(G.connect(s,'export','camera'),'invalid');['revision','export','camera','cable'].forEach(x=>G.collect(s,x));assert.equal(G.connect(s,'cable','camera'),'unrelated');assert.equal(G.connect(s,'export','camera'),'linked');assert.equal(G.connect(s,'camera','export'),'exists');assert.equal(s.links.length,1);});
+test('completed cases cannot collect additional findings until reopened',()=>{const s=G.fresh();G.assess(s,'Kade','verified');assert.equal(G.collect(s,'camera'),false);s.ending=null;assert.equal(G.collect(s,'camera'),true);});
+test('progress, notes, links and disposition survive save/reload',()=>{const s=full();s.notes='A theory with <angle brackets> & quotations.';s.view='journal';G.assess(s,'Kade','verified');assert.deepEqual(G.restore(JSON.stringify(s)),s);});
+test('malformed, obsolete and incomplete saves recover safely',()=>{for(const raw of [null,'null','{','{}','{"version":1}','{"version":2,"clues":3}'])assert.deepEqual(G.restore(raw),G.fresh());});
+test('save recovery drops unknown clues, duplicate facts and fabricated links',()=>{const s=G.restore(JSON.stringify({...G.fresh(),clues:['camera','camera','bogus'],links:['camera:upload'],minutes:-9,place:'bogus',view:'bogus'}));assert.deepEqual(s.clues,['camera']);assert.deepEqual(s.links,[]);assert.equal(s.minutes,0);assert.equal(s.place,'brief');assert.equal(s.view,'field');});

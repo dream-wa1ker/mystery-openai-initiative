@@ -1,0 +1,9 @@
+Generated using the built-in image generation tool. Optimized locally as WebP.
+
+crisis-room.webp
+Use case: stylized-concept. Asset type: wide background illustration for a browser spy investigation game. A cinematic painterly realistic intelligence crisis room at night, empty, viewed from doorway: large glowing harbor map on left wall, central desk with open paper dossier and desk lamp, surveillance monitors on right, rainy windows overlooking a container port. Analog espionage thriller, cold teal shadows, warm amber task lighting, subtle film grain, exquisite atmospheric detail, wide 16:9 composition. No people, no readable text, no interface overlays, no watermark. Objects clearly separated to support clickable hotspots.
+
+suspects.webp
+Use case: stylized-concept. Asset type: three-character portrait contact sheet for fictional espionage browser game. One wide image split into exactly three equal vertical panels, chest-up portraits, consistent cinematic painterly realism and teal-black backgrounds, amber rim light, subtle film grain. Left: Director Vale, stern white woman around 55 with short silver hair, dark blazer. Center: Analyst Imani, thoughtful Black woman around 32 with short natural curls, olive shirt. Right: Liaison Kade, guarded white man around 40, dark swept hair, stubble, navy suit with open collar. Faces distinct, centered in each equal panel, no text, no borders, no watermark.
+
+insignia.svg and meridian-map.svg are original code-native vector assets.
