@@ -16,6 +16,16 @@ Click the room hotspots and question the suspects. Record findings, then select 
 
 Progress and private notes save in this browser using localStorage. Restart asks before clearing the case. Reopen a completed investigation to improve your assessment without losing discoveries.
 
+## Cinematic and first-person views
+
+The story, dialogue, eight findings, puzzles, six dispositions, and existing save format are preserved.
+
+The default cinematic view adds a skippable title shot, layered mouse parallax, rain, dust, lamp glow, letterboxing, grain, animated inspections, portrait close-ups, and evidence-card depth. Enable **Sound on** for synthesized rain and low ambient tones. No audio is downloaded or autoplayed.
+
+Select **Walk the station** in the room to enter a textured Canvas 2D ray-cast environment. All four rooms are connected and their stations open the original inspection panels. Use **WASD** to move, **left/right arrows** or **drag** to turn, and **E** or the inspection button to interact. Touch controls are included. You can also travel directly using the location buttons or reset your position. Return to **Cinematic view** to use the illustrated hotspots.
+
+Movement does not advance the story clock. Discovery rules remain the same. View preferences are stored separately from case progress. Motion can be disabled and respects the operating system’s reduced-motion setting; first-person movement remains under your control. Fullscreen is optional and depends on browser support.
+
 ## Validate and package
 
 ```sh
@@ -27,8 +37,12 @@ npm run build
 
 - `game-engine.js`: evidence, connections, outcomes, and save recovery.
 - `app.js`: interactive scenes, interviews, puzzles, journal, and audio.
+- `cinema.js` / `cinema.css`: layered presentation, atmosphere, ray-cast rendering, controls, opening sequence, and ambient sound.
+- `station-world.js`: room geometry, ray intersections, collision, and inspection targeting.
 - `style.css`: responsive game layout, keyboard focus styles, reduced-motion support.
 - `assets/`: generated WebP room/portraits and original SVG map/insignia. Full generation prompts and provenance are in `assets/ART-DIRECTION.txt`.
 - `tests/game.test.js`: solution path, alternative dispositions, incomplete evidence, invalid links, duplicate actions, and save recovery.
+- `tests/station-world.test.js`: ray distances, collisions, connected rooms, reachability, and occlusion.
+- `tests/cinema.test.js`: renderer API/lifecycle smoke checks using simulated canvas and DOM objects. These do not verify browser layout or pixels.
 
 The people, places, and events are fictional.

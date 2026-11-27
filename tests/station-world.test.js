@@ -1,0 +1,11 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const W=require('../station-world');
+test('each room starts in an open, correctly identified location',()=>{for(const [name,p] of Object.entries(W.starts)){assert.ok(W.free(p.x,p.y));assert.equal(W.zone(p.x,p.y),name);}});
+test('ray distances match known north-facing and east-facing walls',()=>{assert.equal(W.cast(4,5,0,-1).distance,4);assert.equal(W.cast(4,5,1,0).distance,3);});
+test('movement collides with walls, including large steps, without tunneling',()=>{const p={x:4,y:5};W.move(p,100,0);assert.ok(p.x<6.81);assert.ok(W.free(p.x,p.y));W.move(p,0,-100);assert.ok(p.y>1.19);assert.ok(W.free(p.x,p.y));});
+test('a blocked axis still permits sliding along a wall',()=>{const p={x:6.75,y:4};W.move(p,1,1);assert.ok(p.x<6.81);assert.ok(p.y>4.9);});
+test('every room and station can be reached from the crisis room',()=>{const queue=[[4,5]],visited=new Set(['4:5']);while(queue.length){const [x,y]=queue.shift();for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const nx=x+dx,ny=y+dy,key=nx+':'+ny;if(!visited.has(key)&&W.free(nx+.5,ny+.5)){visited.add(key);queue.push([nx,ny]);}}}for(const s of W.stations)assert.ok(visited.has(Math.floor(s.x)+':'+Math.floor(s.y)),s.name);for(const p of Object.values(W.starts))assert.ok(visited.has(Math.floor(p.x)+':'+Math.floor(p.y)));});
+test('reticle inspection requires proximity and facing the station',()=>{const p={...W.starts.brief};assert.equal(W.target(p).id,'dossier');p.angle+=Math.PI;assert.equal(W.target(p),null);p.x=7.5;p.y=7.5;assert.equal(W.target(p),null);});
+test('stations behind walls cannot be inspected',()=>{const p={x:6.5,y:3,angle:0};assert.equal(W.target(p,[{id:'blocked',x:8.5,y:3}]),null);});
+test('every evidence station is inspectable from nearby open floor',()=>{for(const s of W.stations){const p={x:s.x,y:s.y+1.2,angle:-Math.PI/2};assert.ok(W.free(p.x,p.y),s.name);assert.equal(W.target(p,[s])?.id,s.id,s.name);}});
