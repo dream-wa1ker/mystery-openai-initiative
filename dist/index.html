@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1419">
+<title>BLACKLINE | An intelligence mystery</title>
+<meta name="description" content="A fictional spy investigation about a leaked source list, a false narrative, and the cost of acting on incomplete intelligence.">
+<style>
+  :root{color-scheme:dark;--bg:#0b1419;--panel:#14232a;--raised:#1b3037;--line:#36535b;--ink:#e6ece8;--muted:#aac0bf;--cyan:#73d4cf;--amber:#e7bd76;--red:#ed827c}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#1b3740,transparent 35%),var(--bg);color:var(--ink);font:17px/1.5 system-ui,Arial,sans-serif}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.5}
+  .mono,.tag,.kicker,.navbtn,.action,.tiny{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.mast{border-bottom:1px solid var(--line);background:#0b171bd9}.mast-inner{max-width:1280px;margin:auto;padding:17px 24px;display:flex;justify-content:space-between;gap:12px;align-items:center}.brand{color:var(--cyan);font-weight:800;letter-spacing:.17em}.tiny{font-size:13px;color:var(--muted);letter-spacing:.08em}.shell{max-width:1280px;margin:auto;padding:37px 24px 75px}.hero{border-left:4px solid var(--red);padding:4px 0 7px 23px;margin:0 0 28px}.kicker{color:var(--amber);font-size:13px;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-size:clamp(38px,6vw,76px);line-height:1.05;letter-spacing:-.05em;margin:11px 0}.hero p{max-width:780px;color:var(--muted);margin:0;font-size:19px}.brief{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0}.brief div{background:#101f25;border:1px solid var(--line);padding:14px 17px}.brief strong{display:block;color:var(--amber);font:12px ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase}.brief span{font-size:16px}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.8fr);gap:18px;align-items:start}.panel{border:1px solid var(--line);background:linear-gradient(155deg,#17282e,#101e24);box-shadow:0 20px 60px #0004}.main{min-height:590px}.scene-head{padding:28px 30px 22px;border-bottom:1px solid var(--line)}.tag{font-size:12px;color:var(--cyan);letter-spacing:.16em;text-transform:uppercase}.scene-head h2{font-size:31px;margin:7px 0}.scene-head p{margin:0;color:var(--muted)}.scene{padding:27px 30px 34px}.visual{height:145px;border:1px solid var(--line);background:linear-gradient(135deg,#0a171d,#1c3a40);display:flex;justify-content:space-between;align-items:center;padding:25px;position:relative;overflow:hidden}.visual:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 23px,#76cfcb12 24px),repeating-linear-gradient(90deg,transparent 0 23px,#76cfcb12 24px)}.visual span{position:relative}.visual .icon{font:700 70px ui-monospace,monospace;color:#7ddad2;text-shadow:0 0 30px #4bc6c58a}.visual .coord{text-align:right;font:13px/1.8 ui-monospace,monospace;color:var(--muted)}.section{font:13px ui-monospace,monospace;color:var(--amber);letter-spacing:.14em;text-transform:uppercase;margin:24px 0 12px}.options{display:grid;gap:10px}.option,.choice{width:100%;border:1px solid var(--line);background:var(--raised);color:var(--ink);padding:14px 17px;text-align:left}.option:hover,.choice:hover,.navbtn:hover{border-color:var(--cyan);background:#254047}.option strong{display:block;font-size:17px}.option small{display:block;color:var(--muted);font-size:14px;margin-top:3px}.readout{margin-top:18px;background:#0a191d;border-left:3px solid var(--cyan);padding:17px 20px;min-height:90px}.readout b{color:var(--cyan)}.side{padding:23px;display:grid;gap:21px}.side h3{font:700 13px ui-monospace,monospace;letter-spacing:.13em;color:var(--amber);text-transform:uppercase;margin:0 0 11px}.side p{margin:0;color:var(--muted);font-size:15px}.rule{height:1px;background:var(--line)}.nav{display:grid;gap:7px}.navbtn{width:100%;border:1px solid var(--line);background:#14262c;color:var(--ink);padding:10px 12px;text-align:left;font-size:14px}.navbtn.active{border-color:var(--cyan);color:var(--cyan)}.evidence{list-style:none;padding:0;margin:0;display:grid;gap:7px}.evidence li{font-size:14px;padding:9px 10px;background:#0b1c21;border:1px solid #28454d}.evidence li:before{content:"◆ ";color:var(--cyan)}.empty{font-style:italic;color:var(--muted)}.action{width:100%;background:var(--cyan);border:1px solid var(--cyan);color:#07171b;padding:13px;font-weight:800;text-transform:uppercase;font-size:14px;letter-spacing:.05em}.action:hover{background:#a3e9df}.reset{background:none;border:0;color:var(--muted);text-decoration:underline;text-align:left;padding:0}.choices{display:grid;gap:9px}.choice small{color:var(--muted);display:block;font-size:14px}.ending{border:1px solid var(--amber);padding:22px;background:#1d2b2a;margin-top:20px}.ending h3{margin:0 0 12px;color:var(--amber);font-size:25px}.ending p{margin:0 0 13px}.ending .action{margin-top:10px}.warn{color:var(--red)}.footer{color:var(--muted);font-size:13px;margin-top:25px}.status{color:var(--amber)}@media(max-width:850px){.layout{grid-template-columns:1fr}.brief{grid-template-columns:1fr}.main{min-height:0}}@media(max-width:540px){.shell{padding:24px 15px 45px}.mast-inner{padding:14px 15px}.scene-head,.scene{padding:21px}.visual{height:125px}.tiny{display:none}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="mast-inner"><div class="brand">BLACKLINE // CASE 07</div><div class="tiny">FICTIONAL INTELLIGENCE SIMULATION · LOCAL TIME 23:41</div></div></header>
+<div class="shell">
+  <section class="hero"><div class="kicker">Eyes only / crisis cell</div><h1>The Meridian Leak</h1><p>A source list has escaped the secure network. A forged briefing is moving through the press. At 06:00, a summit on regional shipping and energy security begins. You have one night to decide what is real.</p></section>
+  <div class="brief"><div><strong>Asset at risk</strong><span>Three confidential informants in Port Meridian</span></div><div><strong>Deadline</strong><span>06:00 summit briefing</span></div><div><strong>Your mandate</strong><span>Identify the leak, then choose what to release</span></div></div>
+  <div class="layout">
+    <main id="main" class="panel main" aria-live="polite"></main>
+    <aside class="panel side" aria-label="Case file">
+      <div><h3>Situation</h3><p>The leaked document claims a neighboring state plans to block the strait. Markets are reacting. Nobody has verified the claim, and the unredacted file exposes human sources.</p></div>
+      <div class="rule"></div>
+      <div><h3>Investigate</h3><nav id="nav" class="nav" aria-label="Investigation locations"></nav></div>
+      <div class="rule"></div>
+      <div><h3>Evidence <span id="count" class="status">0</span></h3><ul id="evidence" class="evidence"></ul></div>
+      <button id="decide" class="action">File your assessment</button>
+      <button id="reset" class="reset">Restart case</button>
+    </aside>
+  </div>
+  <p class="footer">Fictional countries and events. The case explores source protection, verification, and information warfare.</p>
+</div>
+<script>
+const scenes={
+  brief:{name:"Crisis room",symbol:"07",coord:"SOURCE STATUS: UNKNOWN<br>PUBLIC CLAIM: UNVERIFIED",intro:"Three people touched the draft before it escaped. Interviews are useful, but the logs and the document itself will decide the case.",options:[
+    {label:"Interview Director Vale",detail:"Signed the 22:00 crisis briefing",text:"Vale: “I ordered a summary for the summit. I did not authorize names or raw coordinates in it. Check who exported the source annex.”"},
+    {label:"Interview Analyst Imani",detail:"Wrote the original estimate",text:"Imani: “My assessment said the blockade rumor was uncorroborated. The leaked version says we confirmed it. Someone changed the confidence line.”",clue:"Original estimate marked the blockade claim uncorroborated"},
+    {label:"Interview Liaison Kade",detail:"Handled the press contact",text:"Kade: “I sent a harmless talking point to a reporter at 22:14. Nothing classified. My terminal was locked after that.”"}]},
+  archive:{name:"Document archive",symbol:"DOC",coord:"REVISION 12 → 13<br>ANNEX B: EXPORTED",intro:"The leaked PDF carries revision marks that survive its attempt to look like an official briefing.",options:[
+    {label:"Compare both revisions",detail:"What changed between draft and leak?",text:"Revision 12: ‘No independent confirmation of a blockade.’ Revision 13: ‘Blockade confirmed.’ The author field on revision 13 is Kade’s account.",clue:"Kade's account changed the confidence line"},
+    {label:"Inspect source annex",detail:"Names embedded in the export",text:"The public PDF includes a hidden text layer with three source identifiers. Sharing the file itself would expose them again.",clue:"Leaked PDF contains hidden source identifiers"},
+    {label:"Read the maritime cable",detail:"A separate channel",text:"Two routine vessel delays appear in the cable. There is no independent signal of a planned blockade.",clue:"Maritime cable does not corroborate a blockade"}]},
+  logs:{name:"Access logs",symbol:"LOG",coord:"22:08 / 22:11 / 22:14<br>ONE SESSION",intro:"A burst of activity occurred while most of the crisis team was in the briefing room.",options:[
+    {label:"Trace the annex export",detail:"Who retrieved the source list?",text:"At 22:08 Kade’s credential exported Annex B to a removable drive. The device was registered to Kade. The drive was disconnected at 22:11.",clue:"Kade's registered drive exported Annex B at 22:08"},
+    {label:"Check camera and door events",detail:"Account use or stolen password?",text:"The corridor camera places Kade at the workstation at 22:08. Imani and Vale were already in the briefing room.",clue:"Camera places Kade at the export terminal"},
+    {label:"Review outbound traffic",detail:"Find the path to the reporter",text:"At 22:14 the same workstation opened the reporter’s secure drop. The upload hash matches the leaked PDF.",clue:"Kade's workstation uploaded the leaked PDF"}]},
+  desk:{name:"Press liaison desk",symbol:"PR",coord:"DRAFT / EMBARGO / DROP<br>MESSAGE DELETED",intro:"Kade left one local draft and a deleted message fragment. Neither is proof alone.",options:[
+    {label:"Recover the deleted message",detail:"A warning from the reporter",text:"Reporter: ‘The document names people. Are you sure?’ Kade: ‘Run the blockade line before the opening bell. The names are in the file, not the story.’",clue:"Kade knew the PDF exposed sources"},
+    {label:"Inspect Kade’s notes",detail:"A motive written in shorthand",text:"A margin note reads: ‘Force a public response before ministers bury the crisis.’ Kade may believe exposure will compel action, but that does not make the claim true."},
+    {label:"Check the call record",detail:"One call after the upload",text:"A five-minute call to an unknown number followed the upload. The recipient cannot be identified from this record; do not treat the call as proof of a foreign handler."}]}
+};
+const ids=["brief","archive","logs","desk"];
+const proof=["Kade's account changed the confidence line","Kade's registered drive exported Annex B at 22:08","Camera places Kade at the export terminal","Kade's workstation uploaded the leaked PDF","Leaked PDF contains hidden source identifiers"];
+let state;
+const $=id=>document.getElementById(id);
+function fresh(){state={place:"brief",clues:[],message:"Select an interview or move through the case file. Evidence is recorded automatically.",phase:"explore",suspect:null,ending:null};render()}
+function render(){
+  $("nav").innerHTML=ids.map(id=>`<button class="navbtn ${state.place===id?"active":""}" data-place="${id}" ${state.ending?"disabled":""}>${scenes[id].name}</button>`).join("");
+  $("count").textContent=state.clues.length+" / 8";
+  $("evidence").innerHTML=state.clues.length?state.clues.map(c=>`<li>${c}</li>`).join(""):'<li class="empty">No evidence filed yet.</li>';
+  $("decide").disabled=!!state.ending;
+  const scene=scenes[state.place];
+  let body;
+  if(state.ending)body=endingMarkup();
+  else if(state.phase==="suspect")body=`<div class="section">Assessment / attribution</div><p>Whose actions produced the leak? Consider account access, physical presence, and the upload path.</p><div class="choices"><button class="choice" data-suspect="Kade">Liaison Kade<small>Press contact and briefing access</small></button><button class="choice" data-suspect="Imani">Analyst Imani<small>Wrote the original intelligence estimate</small></button><button class="choice" data-suspect="Vale">Director Vale<small>Ordered the summit briefing</small></button></div><div class="readout">You may file now. Strong attribution needs the document change, export, camera, and upload evidence.</div>`;
+  else if(state.phase==="release")body=`<div class="section">Assessment / information release</div><p>You have named <b>${state.suspect}</b>. The summit begins at 06:00. What do you send?</p><div class="choices"><button class="choice" data-release="raw">Release the full leaked PDF<small>Fast public proof, including the hidden source identifiers</small></button><button class="choice" data-release="silence">Suppress all information<small>Protect the file, leave the false blockade claim circulating</small></button><button class="choice" data-release="verified">Issue a verified, redacted correction<small>Challenge the claim, preserve the source identities, retain an audit trail</small></button></div><div class="readout">The public claim and the exposed people are separate problems. What you publish changes both.</div>`;
+  else body=`<div class="section">Examine / question</div><div class="options">${scene.options.map((o,i)=>`<button class="option" data-option="${i}"><strong>${o.label}</strong><small>${o.detail}</small></button>`).join("")}</div><div class="readout" role="status">${state.message}</div>`;
+  $("main").innerHTML=`<div class="scene-head"><div class="tag">BLACKLINE / ${state.phase.toUpperCase()}</div><h2>${scene.name}</h2><p>${scene.intro}</p></div><div class="scene"><div class="visual" aria-hidden="true"><span class="icon">${scene.symbol}</span><span class="coord">${scene.coord}</span></div>${body}</div>`;
+  document.querySelectorAll("[data-place]").forEach(b=>b.onclick=()=>{state.place=b.dataset.place;state.phase="explore";state.message="Examine the record. Distinguish direct evidence from what someone merely claims.";render()});
+  document.querySelectorAll("[data-option]").forEach(b=>b.onclick=()=>{const o=scene.options[Number(b.dataset.option)];if(o.clue&&!state.clues.includes(o.clue))state.clues.push(o.clue);state.message=(o.clue?"<b>Evidence filed.</b> ":"")+o.text;render()});
+  document.querySelectorAll("[data-suspect]").forEach(b=>b.onclick=()=>{state.suspect=b.dataset.suspect;state.phase="release";render()});
+  document.querySelectorAll("[data-release]").forEach(b=>b.onclick=()=>{const enough=proof.every(c=>state.clues.includes(c));const verified=state.clues.includes("Original estimate marked the blockade claim uncorroborated")&&state.clues.includes("Maritime cable does not corroborate a blockade");state.ending={suspect:state.suspect,release:b.dataset.release,enough,verified};render()});
+  const again=$("again");if(again)again.onclick=fresh;
+}
+function endingMarkup(){
+  const e=state.ending;
+  let title,content;
+  if(e.suspect!=="Kade"||!e.enough){title="Assessment rejected";content="Your attribution is not supported by the complete chain. The archive revision, export log, camera event, and upload trace connect Kade to the altered file. The source annex proves the stakes. A plausible story is not enough to name a leaker."}
+  else if(e.release==="raw"){title="The sources are burned";content="Your attribution is sound, but the unredacted PDF republishes the hidden identifiers. The false claim is challenged, while three people now face exposure. The investigation survives; its sources may not."}
+  else if(e.release==="silence"){title="The vacuum wins";content="The source list stays contained, but the false blockade claim keeps circulating into the summit. Traders and officials react to a document you know was altered."}
+  else if(!e.verified){title="A careful claim, weakly sourced";content="You identify Kade and withhold the source identifiers. Your correction still lacks both the original confidence wording and independent maritime corroboration. The crisis cell asks you to verify those before release."}
+  else{title="The line holds";content="You identify Kade through the revision, export, camera, and upload records. Your correction states that the blockade claim is uncorroborated, cites the independent cable, and strips every source identifier. The original file is preserved for investigators; the public gets a verifiable account without the source list."}
+  return `<div class="ending"><div class="tag">FINAL DISPOSITION</div><h3>${title}</h3><p>${content}</p><p class="tiny">ATTRIBUTION: ${e.suspect.toUpperCase()} · RELEASE: ${e.release.toUpperCase()} · CHAIN: ${e.enough?"COMPLETE":"INCOMPLETE"}</p><button class="action" id="again">Reopen the case</button></div>`;
+}
+$("decide").onclick=()=>{state.phase="suspect";render();$("main").scrollIntoView({behavior:"smooth",block:"start"})};
+$("reset").onclick=fresh;
+fresh();
+</script>
+</body>
+</html>
