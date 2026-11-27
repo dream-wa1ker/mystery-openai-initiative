@@ -5,6 +5,6 @@
   "description": "An interactive, browser-local espionage investigation.",
   "scripts": {
     "build": "node build.js",
-    "test": "node tests/game.test.js && node tests/station-world.test.js && node tests/cinema.test.js"
+    "test": "node tests/game.test.js && node tests/station-world.test.js && node tests/cinema.test.js && node tests/navigation.test.js"
   }
 }

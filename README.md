@@ -26,6 +26,21 @@ Select **Walk the station** in the room to enter a textured Canvas 2D ray-cast e
 
 Movement does not advance the story clock. Discovery rules remain the same. View preferences are stored separately from case progress. Motion can be disabled and respects the operating system’s reduced-motion setting; first-person movement remains under your control. Fullscreen is optional and depends on browser support.
 
+## Full-screen navigation
+
+The illustrated or first-person scene fills the viewport by default, with a bottom navigation dock, a room travel rail, a current-lead card, a live news ticker, and a camera heading display. Supporting content opens in overlays; evidence and notes have their own full-screen workspaces.
+
+- **0**: Scene; **B**: Evidence; **J**: Notes.
+- **1–4**: Travel directly to Crisis room, Document archive, Security office, or Press liaison desk.
+- **G**: Location navigator, floor plan, room progress, and quick inspection links.
+- **P**: Interview directory; **I**: Mission briefing and assessment.
+- **H** or **?**: Field manual with controls, an investigation guide, and presentation settings.
+- **V**: Switch camera views; **F**: Browser fullscreen; **M**: Sound.
+- **U**: Clean frame / restore controls. A visible restore button is always available.
+- **Escape**: Close a panel, restore hidden controls, return from a workspace, or open the pause menu.
+
+Navigation shortcuts do not interrupt typing or an open inspection. The original WASD/arrow/drag/E movement controls still apply in first-person view. The help screen and dock offer clickable alternatives to shortcuts.
+
 ## Validate and package
 
 ```sh
@@ -39,10 +54,13 @@ npm run build
 - `app.js`: interactive scenes, interviews, puzzles, journal, and audio.
 - `cinema.js` / `cinema.css`: layered presentation, atmosphere, ray-cast rendering, controls, opening sequence, and ambient sound.
 - `station-world.js`: room geometry, ray intersections, collision, and inspection targeting.
+- `navigation.js` / `immersive.css`: full-screen HUD, view routing, travel and interview directories, briefing drawer, pause menu, and help screen.
+- `navigation-shortcuts.js`: keyboard action mapping and input guards.
 - `style.css`: responsive game layout, keyboard focus styles, reduced-motion support.
 - `assets/`: generated WebP room/portraits and original SVG map/insignia. Full generation prompts and provenance are in `assets/ART-DIRECTION.txt`.
 - `tests/game.test.js`: solution path, alternative dispositions, incomplete evidence, invalid links, duplicate actions, and save recovery.
 - `tests/station-world.test.js`: ray distances, collisions, connected rooms, reachability, and occlusion.
 - `tests/cinema.test.js`: renderer API/lifecycle smoke checks using simulated canvas and DOM objects. These do not verify browser layout or pixels.
+- `tests/navigation.test.js`: documented shortcut mappings, typing/modal guards, travel destinations, help routing, and clean-frame recovery.
 
 The people, places, and events are fictional.
